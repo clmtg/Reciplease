@@ -11,6 +11,7 @@ final class searchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        toggleButtonState(buttons: [addButton], isEnable: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,6 +97,12 @@ final class searchViewController: UIViewController {
             
             case .success(let data):
                 self.recipesList = data
+                
+                guard data.count > 0 else {
+                    self.displayAnAlert(title: "No recipe found", message: "Looks like we can't display recipes with this ingredients list", actions: nil)
+                    return
+                }
+
                 self.performSegue(withIdentifier: "segueFromSearchToResult", sender: self.recipesList)
             }
         }

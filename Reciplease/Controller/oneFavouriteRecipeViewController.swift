@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class oneRecipeViewController: UIViewController {
+class oneFavouriteRecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,15 +17,14 @@ class oneRecipeViewController: UIViewController {
     
     // MARK: - Vars
     //Details related to the affected recipe received from other controller
-    var recipeDetails: Recipe?
+    var recipeDetails: Recipe_CD?
     //Computed property to gather recipe image URL
     var recipeImageUrl: String? {
-        return recipeDetails?.images.large.url
+        return recipeDetails?.artworkUrl
     }
     //Ingredients list for the affected recipe (data source for table view)
     var ingredientsList = [String]()
-    //CoreData instance
-    let repo = CoreDataRepo()
+
     
     // MARK: - IBOutlet
     //Label displaying the recipe name
@@ -33,22 +32,36 @@ class oneRecipeViewController: UIViewController {
     //UIImageView displaying the image recipe
     @IBOutlet weak var recipeImageView: UIImageView!
     
+    // MARK: - IBAction
+    @IBAction func tappedFavouriteButton(_ sender: Any) {
+        
+        let repo = CoreDataRepo()
+        //repo.remove
+        
+    }
+    
+    
     // MARK: - Function
     /// Load the recipe details into the related label, tableview, etc...
     func loadDetails() {
         guard let details = recipeDetails else { return }
-        recipeNameLabel.text = details.label.firstUppercased
+        recipeNameLabel.text = details.name?.firstUppercased
         recipeImageView.kf.setImage(with: URL(string: recipeImageUrl!)!)
+
+/*
         
-        for item in details.ingredients {
-            ingredientsList.append("- \(item.text)")
-        }
+        for oneIngredient in recipeDetails!.ingredients
+ 
+ ===> does not conform to sequence 
+  
+ */
+        
     }
 }
 
 // MARK: - Extensions - TableView - DataSource & Delelegate
 //To conform at UITableViewDataSource protocol.
-extension oneRecipeViewController: UITableViewDataSource {
+extension oneFavouriteRecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "oneIngredientCell", for: indexPath)
         cell.textLabel!.text = ingredientsList[indexPath.row]

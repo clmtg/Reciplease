@@ -25,7 +25,7 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    /// Hide the iOS keyboatd. When called the UITextField provided is no longer first responder
+    /// Hide the iOS keyboard. When called the UITextField provided is no longer first responder
     /// - Parameter firstResponder:UITextField to make resign
     func dismissKeyboard(firstResponder: UITextField) {
         firstResponder.resignFirstResponder()
@@ -46,4 +46,9 @@ extension UIViewController {
             }
         }
     }
+    
+    
+
+
+    
 }

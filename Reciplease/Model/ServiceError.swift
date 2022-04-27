@@ -13,6 +13,8 @@ enum ServiceError: Error {
     case unexpectedResponse
     case jsonInvalid
     case missingIngredients
+    case failureOnlocalLoading
+    case failureToEditLocal
 }
 
 extension ServiceError: CustomStringConvertible {
@@ -22,6 +24,8 @@ extension ServiceError: CustomStringConvertible {
         case .unexpectedResponse: return "The server provided an unexpected response."
         case .jsonInvalid: return "JSON received doesn't conform to pattern."
         case .missingIngredients: return "No ingredients have been provided"
+        case .failureOnlocalLoading: return "Unable to load local data."
+        case .failureToEditLocal: return "Unable to set this recipe as favourite"
         }
     }
 }

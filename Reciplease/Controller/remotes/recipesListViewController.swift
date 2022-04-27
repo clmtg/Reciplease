@@ -42,8 +42,8 @@ final class recipesListViewController: UIViewController {
     
     /// Load the first page of the recipe list received. Does initialise the URL for the next pahe if needed.
     func loadRecipesListInitalPage(){
-        guard let recipesFullData = recipesFullData, recipesFullData.count > 0 else {
-            displayAnAlert(title: "Oops", message: "Looks like we can't display a list with this ingredients list", actions: nil)
+        guard let recipesFullData = recipesFullData else {
+            displayAnAlert(title: "Oops", message: "Looks like we can't display recipes with this ingredients list", actions: nil)
             return
         }
         recipesList = recipesFullData.hits
@@ -52,25 +52,22 @@ final class recipesListViewController: UIViewController {
             nextURL = URL(string: urlList)!
         }
     }
-
+    
     /// Load more recipes using the next page link
     /// - Parameter url: Link of the next page to load
     func loadNextPage(url: URL) {
         recipeCore.loadNextPage(for: url) { response in
             guard case .success(let data) = response else { return }
-            
-            for hit in data.hits {
-                self.recipesList.append(hit)
-            }
-            
-            if let urlList = data.links?.next?.href {
-                self.nextURL = URL(string: urlList)!
-            }
-            else {
-                self.nextURL = nil
-            }
+            self.recipesList.append(contentsOf: data.hits)
             self.recipesListTableView.reloadData()
+            
+            guard let urlList = data.links?.next?.href else {
+                self.nextURL = nil
+                return
+            }
+            self.nextURL = URL(string: urlList)!
         }
+        
     }
 }
 
@@ -122,10 +119,10 @@ extension recipesListViewController: UITableViewDelegate {
 // MARK: - Extensions - Segue
 extension recipesListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if segue.identifier == "segueFromListToDetails" {
-           let index = recipesListTableView.indexPathForSelectedRow?.row
-           let oneRecipeVC = segue.destination as? oneRecipeViewController
-           oneRecipeVC?.recipeDetails = recipesList[index!]
-       }
+        if segue.identifier == "segueFromListToDetails" {
+            let index = recipesListTableView.indexPathForSelectedRow?.row
+            let oneRecipeVC = segue.destination as? oneRecipeViewController
+            oneRecipeVC?.recipeDetails = recipesList[index!].recipe
+        }
     }
 }
