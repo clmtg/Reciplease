@@ -69,6 +69,27 @@ final class recipesListViewController: UIViewController {
         }
         
     }
+    
+    /// Set content in order to be received by next controller as expected (From a Recipe type to a LightRecipeStruct type )
+    /// - Parameter selectedRecipe: the recipe to convert
+    /// - Returns: the recipe converted
+    func prepareContentforSegue(selectedRecipe: Recipe) -> LightRecipeStruct {
+        var detailsSelection = LightRecipeStruct(name: selectedRecipe.label,
+                                                 imageUrl: selectedRecipe.images.large.url,
+                                                 ingredients: [],
+                                                 duration: selectedRecipe.totalTime,
+                                                 rate: selectedRecipe.yield,
+                                                 uri: selectedRecipe.shareAs,
+                                                 recipeUrl: selectedRecipe.uri)
+        
+        for oneIngredient in selectedRecipe.ingredients {
+            let data = LightIngedientStruct(name: oneIngredient.food,
+                                            details: oneIngredient.text)
+            detailsSelection.ingredients.append(data)
+        }
+        return detailsSelection
+    }
+    
 }
 
 // MARK: - Extensions - TableView - DataSource & Delelegate
@@ -122,13 +143,7 @@ extension recipesListViewController {
         if segue.identifier == "segueFromListToDetails" {
             let index = recipesListTableView.indexPathForSelectedRow?.row
             let oneRecipeVC = segue.destination as? oneRecipeViewController
-            
-            let selectedRecipe = Recipe_CD()
-            selectedRecipe.artworkUrl = recipesList[index!].recipe.images.large.url
-            print(selectedRecipe.artworkUrl)
-            
-    
-            
+            oneRecipeVC?.recipeDetails = prepareContentforSegue(selectedRecipe: recipesList[index!].recipe)
         }
     }
 }
