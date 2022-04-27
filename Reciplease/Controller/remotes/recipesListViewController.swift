@@ -43,7 +43,7 @@ final class recipesListViewController: UIViewController {
     /// Load the first page of the recipe list received. Does initialise the URL for the next pahe if needed.
     func loadRecipesListInitalPage(){
         guard let recipesFullData = recipesFullData else {
-            displayAnAlert(title: "Oops", message: "Looks like we can't display recipes with this ingredients list", actions: nil)
+            displayAnAlert(title: "Oops", message: "Looks like we can't display recipes yet", actions: nil)
             return
         }
         recipesList = recipesFullData.hits
@@ -122,7 +122,13 @@ extension recipesListViewController {
         if segue.identifier == "segueFromListToDetails" {
             let index = recipesListTableView.indexPathForSelectedRow?.row
             let oneRecipeVC = segue.destination as? oneRecipeViewController
-            oneRecipeVC?.recipeDetails = recipesList[index!].recipe
+            
+            let selectedRecipe = Recipe_CD()
+            selectedRecipe.artworkUrl = recipesList[index!].recipe.images.large.url
+            print(selectedRecipe.artworkUrl)
+            
+    
+            
         }
     }
 }

@@ -17,13 +17,9 @@ class oneRecipeViewController: UIViewController {
     
     // MARK: - Vars
     //Details related to the affected recipe received from other controller
-    var recipeDetails: Recipe?
-    //Computed property to gather recipe image URL
-    var recipeImageUrl: String? {
-        return recipeDetails?.images.large.url
-    }
-    //Ingredients list for the affected recipe (data source for table view)
-    var ingredientsList = [String]()
+    var recipeDetails: Recipe_CD?
+    var ingredientsList: [Ingredient_CD]?
+    
     //CoreData instance
     let repo = CoreDataRepo()
     
@@ -37,12 +33,9 @@ class oneRecipeViewController: UIViewController {
     /// Load the recipe details into the related label, tableview, etc...
     func loadDetails() {
         guard let details = recipeDetails else { return }
-        recipeNameLabel.text = details.label.firstUppercased
-        recipeImageView.kf.setImage(with: URL(string: recipeImageUrl!)!)
+        recipeNameLabel.text = details.name
+        recipeImageView.kf.setImage(with: URL(string: details.artworkUrl ?? "https://source.unsplash.com/random"))
         
-        for item in details.ingredients {
-            ingredientsList.append("- \(item.text)")
-        }
     }
 }
 
@@ -51,7 +44,7 @@ class oneRecipeViewController: UIViewController {
 extension oneRecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "oneIngredientCell", for: indexPath)
-        cell.textLabel!.text = ingredientsList[indexPath.row]
+        cell.textLabel!.text = ingredientsList![indexPath.row].details
         return cell
     }
     
@@ -60,6 +53,7 @@ extension oneRecipeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let ingredientsList = ingredientsList else {return 0}
         return ingredientsList.count
     }
 }

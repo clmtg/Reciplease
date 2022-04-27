@@ -32,6 +32,7 @@ final class CoreDataRepo {
         }
         
         let recipeToSave = Recipe_CD(context: coreDataStack.viewContext)
+        //let recipeToSave = Recipe_
         recipeToSave.artworkUrl = recipe.images.large.url
         recipeToSave.directUrl = recipe.uri
         recipeToSave.duration = Int16(recipe.totalTime)
