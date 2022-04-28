@@ -28,8 +28,6 @@ final class recipesListViewController: UIViewController {
     //Table view displaying the list of recipes provided by controller searchViewController
     @IBOutlet weak var recipesListTableView: UITableView!
     
-    
-    
     // MARK: - Functions
     /// Extract the listed food out of an ingredients list (from the JSON)
     /// - Parameter ingredientsList: Affected ingredients
@@ -110,8 +108,10 @@ extension recipesListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "oneRecipeCell", for: indexPath) as? oneRecipeTableViewCell else {
             return UITableViewCell()
         }
+        //Retreive recipe
         let index = indexPath.row
         let affectedRecipe = recipesList[index]
+        //Setup cell
         let recipeLabel = affectedRecipe.recipe.label
         let ingredientsLine = ingredientsListToString(ingredientsList: affectedRecipe.recipe.ingredients)
         let recipeDuration = affectedRecipe.recipe.totalTime
@@ -130,7 +130,6 @@ extension recipesListViewController: UITableViewDataSource {
 
 //To conform at UITableViewDelegate protocol.
 extension recipesListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == recipesList.count-1 {
             guard nextURL != nil else { return }

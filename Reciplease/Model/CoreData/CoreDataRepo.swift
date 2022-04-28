@@ -74,6 +74,8 @@ final class CoreDataRepo {
         coreDataStack.saveContext()
     }
     
+    /// Delete a recipe entity from CoreData using the recipe URI
+    /// - Parameter uri: uri of the affected recipe
     func dropRecipe(for uri: String) {
         let request: NSFetchRequest<Recipe_CD> = Recipe_CD.fetchRequest()
         let recipeFilter = NSPredicate(format: "uri == %@", uri)
@@ -82,8 +84,6 @@ final class CoreDataRepo {
         data.forEach { managedObjectContext.delete($0) }
         coreDataStack.saveContext()
     }
-    
-  
     
     //MARK: - Functions - GET Retreive data
     
@@ -98,6 +98,4 @@ final class CoreDataRepo {
         }        
         return data
     }
-    
-    
 }

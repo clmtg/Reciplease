@@ -40,5 +40,4 @@ class oneRecipeTableViewCell: UITableViewCell {
         recipeDuration.text = "\(duration)"
         likesAccountLabel.text = "\(yield)"
     }
-
 }

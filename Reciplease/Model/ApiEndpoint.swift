@@ -19,12 +19,10 @@ struct ApiEndpoint {
     //Full url endpoint
     var url: URL {
         var components = URLComponents()
-        
         components.scheme = "https"
         components.host = "api.edamam.com"
         components.path = "/api/" + path
         components.queryItems = queryItems
-        
         guard let url = components.url else {
             preconditionFailure(
                 "Invalid URL components: \(components)"
@@ -47,18 +45,6 @@ extension ApiEndpoint {
             .init(name: "app_key", value: AppInfo.appKey),
             .init(name: "imageSize", value: "LARGE"),
             .init(name: "q", value: ingredients.joined(separator: ","))
-        ])
-        return endpoint.url
-    }
-    
-    /// Return the endpoint to reach in order to retreive the a specific recipe
-    /// - Returns: Endpoint to reach
-    static func recipeForId(_ id: String) -> URL {
-        let endpoint = ApiEndpoint(path: "recipes/v2", queryItems: [
-            .init(name: "type", value: "public"),
-            .init(name: "app_id", value: AppInfo.appId),
-            .init(name: "app_key", value: AppInfo.appKey),
-            .init(name: "id", value: "id")
         ])
         return endpoint.url
     }

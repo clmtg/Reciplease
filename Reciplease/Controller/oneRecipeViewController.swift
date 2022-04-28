@@ -69,9 +69,8 @@ class oneRecipeViewController: UIViewController {
         toggleFavouriteButton(next: isFavourite)
     }
     
-    
     /// Add or remove current recipe from favourites list using CoreData. Does update the NavBarButton too
-    /// - Parameter status: Once performed, will the recipe be part of favourite
+    /// - Parameter status: Once performed, will the recipe be part of favourites
     private func updateStatus(next status: Bool) {
         if status {
             coreDataManager?.addRecipeToFavourite(recipeDetails, completionHandler: { error in
@@ -82,7 +81,6 @@ class oneRecipeViewController: UIViewController {
         else {
             coreDataManager?.dropRecipe(for: recipeDetails!.uri)
             toggleFavouriteButton(next: status)
-            //navigationController?.popViewController(animated: true)
         }
     }
     

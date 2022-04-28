@@ -41,13 +41,12 @@ final class favouritesListViewController: UIViewController {
         guard let data = ingredientsList else { return "n/a" }
         var inlineList = String()
         for oneIngredient in data {
-            inlineList += "\(oneIngredient.name), "
+            inlineList += "\(oneIngredient.name ?? "Mystery ingredient"), "
         }
         return inlineList
     }
     
-    
-    /// Set content in order to be received by next controller as expected (From a Recipe type to a LightRecipeStruct type )
+    /// Set content in order to be received by next controller as expected (From a Recipe coredata model type to a LightRecipeStruct type )
     /// - Parameter selectedRecipe: the recipe to convert
     /// - Returns: the recipe converted
     func prepareContentforSegue(selectedRecipe: Recipe_CD, selectedIngredients: [Ingredient_CD]) -> LightRecipeStruct {
