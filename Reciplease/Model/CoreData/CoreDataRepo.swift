@@ -8,104 +8,96 @@
 import Foundation
 import CoreData
 
-/// Class handling the data (get/save) through the CoreDataStack
+/// Class handling the data (get/save/delete/etc...) through the CoreDataStack
 final class CoreDataRepo {
     
-    init(coreDataStack: CoreDataStack = CoreDataStack.sharedInstance) {
+    // MARK: - Properties
+    private let coreDataStack: CoreDataStack
+    private let managedObjectContext: NSManagedObjectContext
+    
+    // MARK: - Initializer
+    init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
+        self.managedObjectContext = coreDataStack.mainContext
     }
     
-    //MARK: - Vars
-    /// CoreDataStack
-    private let coreDataStack: CoreDataStack
+    // MARK: - Computed var
+    var favouritesList: [Recipe_CD] {
+        let request: NSFetchRequest<Recipe_CD> = Recipe_CD.fetchRequest()
+        guard let recipes = try? managedObjectContext.fetch(request) else { return [] }
+        return recipes
+    }
+    
     
     //MARK: - Functions - EDIT (Add/Edit/Remove)
+
     
-    /// Save a recipe as favourite to be loaded locally if needed
+    /// Add a favourite and the related ingredients to CoreData model
     /// - Parameters:
     ///   - recipe: recipe to add
-    ///   - completionHandler: steps to process based on success result
-    func addRecipeToFavourite(_ recipe: Recipe?, completionHandler: (ServiceError?) -> Void) {
+    ///   - completionHandler: steps to process once done
+    func addRecipeToFavourite(_ recipe: LightRecipeStruct?, completionHandler: (ServiceError?) -> Void) {
         guard let recipe = recipe else {
             completionHandler(.failureToEditLocal)
             return
         }
         
-        let recipeToSave = Recipe_CD(context: coreDataStack.viewContext)
-        //let recipeToSave = Recipe_
-        recipeToSave.artworkUrl = recipe.images.large.url
-        recipeToSave.directUrl = recipe.uri
-        recipeToSave.duration = Int16(recipe.totalTime)
-        recipeToSave.name = recipe.label
-        recipeToSave.rate = Int16(recipe.yield)
+        let recipeToSave = Recipe_CD(context: managedObjectContext)
         
-        do {
-            try coreDataStack.viewContext.save()
-            linkIngredients(ingredients: recipe.ingredients, recipe: recipeToSave, completionHandler: completionHandler)
-        }
-        catch {
-            completionHandler(.failureToEditLocal)
-        }
+        recipeToSave.duration = Int16(recipe.duration)
+        recipeToSave.imageUrl = recipe.imageUrl
+        recipeToSave.name = recipe.name
+        recipeToSave.rate = Int16(recipe.rate)
+        recipeToSave.recipeUrl = recipe.recipeUrl
+        recipeToSave.uri =  recipe.uri
+        coreDataStack.saveContext()
         
+        linkIngredients(ingredients: recipe.ingredients, recipe: recipeToSave, completionHandler: completionHandler)
     }
+
     
-    /// Add ingredients within CoreData model and link them to the affected recipe
+    /// Add ingredients, for a given recipe, to CoreData model
     /// - Parameters:
-    ///   - ingredients: array of ingredients to add
-    ///   - recipe: affected recipe
-    ///   - completionHandler: steps to perform once done
-    func linkIngredients(ingredients: [Ingredient], recipe: Recipe_CD, completionHandler: (ServiceError?) -> Void) {
+    ///   - ingredients: list of ingredients to add
+    ///   - recipe: related recipe
+    ///   - completionHandler: steps to process once done
+    func linkIngredients(ingredients: [LightIngedientStruct], recipe: Recipe_CD, completionHandler: (ServiceError?) -> Void) {
         var ingredientsToSave = [Ingredient_CD]()
+        
         for oneIngredient in ingredients {
-            let data = Ingredient_CD(context: coreDataStack.viewContext)
-            data.name = oneIngredient.food
-            data.details = oneIngredient.text
+            let data = Ingredient_CD(context: managedObjectContext)
+            data.name = oneIngredient.name
+            data.details = oneIngredient.details
             data.recipe = recipe
             ingredientsToSave.append(data)
         }
-        
-        do {
-            try coreDataStack.viewContext.save()
-            completionHandler(nil)
-        }
-        catch {
-            completionHandler(.failureToEditLocal)
-        }
+        coreDataStack.saveContext()
     }
     
-    /// Remove the affected recipe for the favourites list (local)
-    /// - Parameter recipe: recipe to remove
-    func dropRecipe(recipe: Recipe_CD) {
-        coreDataStack.viewContext.delete(recipe)
+    func dropRecipe(for uri: String) {
+        let request: NSFetchRequest<Recipe_CD> = Recipe_CD.fetchRequest()
+        let recipeFilter = NSPredicate(format: "uri == %@", uri)
+        request.predicate = recipeFilter
+        guard let data = try? coreDataStack.mainContext.fetch(request) else { return }
+        data.forEach { managedObjectContext.delete($0) }
+        coreDataStack.saveContext()
     }
+    
+  
     
     //MARK: - Functions - GET Retreive data
     
-    /// Provide the list of favourite recipe through a closure
+    /// Provide the list of ingredients for a given recipethrough a closure
     /// - Parameter completionHandler: closure to process
-    func getFavourites(completionHandler: (Result<[Recipe_CD], ServiceError>) -> Void ) {
-        let request: NSFetchRequest<Recipe_CD> = Recipe_CD.fetchRequest()
-        guard let data = try? coreDataStack.viewContext.fetch(request) else {
-            completionHandler(.failure(.failureOnlocalLoading))
-            return
-        }
-        completionHandler(.success(data))
-    }
-    
-    /// Provide the list of ingredients for a specific through a closure
-    /// - Parameter completionHandler: closure to process
-    func getIngredients(for recipe: Recipe_CD,completionHandler: (Result<[Ingredient_CD], ServiceError>) -> Void ) {
+    func getIngredients(for recipe: Recipe_CD) -> [Ingredient_CD] {
         let request: NSFetchRequest<Ingredient_CD> = Ingredient_CD.fetchRequest()
         let recipeFilter = NSPredicate(format: "recipe == %@", recipe)
         request.predicate = recipeFilter
-        
-        guard let data = try? coreDataStack.viewContext.fetch(request) else {
-            completionHandler(.failure(.failureOnlocalLoading))
-            return
+        guard let data = try? coreDataStack.mainContext.fetch(request) else {
+            return [Ingredient_CD]()
         }        
-        completionHandler(.success(data))
+        return data
     }
     
     
 }
-

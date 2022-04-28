@@ -28,6 +28,8 @@ final class recipesListViewController: UIViewController {
     //Table view displaying the list of recipes provided by controller searchViewController
     @IBOutlet weak var recipesListTableView: UITableView!
     
+    
+    
     // MARK: - Functions
     /// Extract the listed food out of an ingredients list (from the JSON)
     /// - Parameter ingredientsList: Affected ingredients

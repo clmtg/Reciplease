@@ -7,11 +7,15 @@
 
 import UIKit
 import Kingfisher
+import CoreData
 
 class oneRecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let coredataStack = appdelegate.coreDataStack
+        coreDataManager = CoreDataRepo(coreDataStack: coredataStack)
         loadDetails()
     }
     
@@ -23,18 +27,34 @@ class oneRecipeViewController: UIViewController {
         guard let recipeDetails = recipeDetails else { return [] }
         return recipeDetails.ingredients
     }
+    /// Is recipy currently display part of the favourite list
+    var isFavourite: Bool {
+        guard let favourite = coreDataManager?.favouritesList else { return false }
+        return favourite.contains { localRecipe in
+            guard localRecipe.uri == recipeDetails?.uri else { return false }
+            return true
+        }
+    }
+    /// CoreData instance
+    private var coreDataManager: CoreDataRepo?
     
     // MARK: - IBOutlet
     /// UIImageView displaying the image recipe
     @IBOutlet weak var recipeImageView: UIImageView!
     /// Label displaying the recipe name
     @IBOutlet weak var recipeNameLabel: UILabel!
+    /// UIBarButtonItem used to add/remove recipe from favourite list
+    @IBOutlet weak var favouriteButton: UIBarButtonItem!
     
     // MARK: - IBActions
     /// Performed when UIButton "Get directions" has been tapped
     @IBAction func didTappedGetDirections(_ sender: Any) {
         guard let url = recipeDetails?.uri else { return }
         UIApplication.shared.open(URL(string: url)!)
+    }
+    /// Performed when UIButton "favouriteButton" has been tapped
+    @IBAction func tappedFavouriteButton(_ sender: Any) {
+        updateStatus(next: !isFavourite)
     }
     
     // MARK: - Functions
@@ -46,6 +66,33 @@ class oneRecipeViewController: UIViewController {
         }
         recipeNameLabel.text = details.name
         recipeImageView.kf.setImage(with: URL(string: details.imageUrl))
+        toggleFavouriteButton(next: isFavourite)
+    }
+    
+    
+    /// Add or remove current recipe from favourites list using CoreData. Does update the NavBarButton too
+    /// - Parameter status: Once performed, will the recipe be part of favourite
+    private func updateStatus(next status: Bool) {
+        if status {
+            coreDataManager?.addRecipeToFavourite(recipeDetails, completionHandler: { error in
+                return
+            })
+            toggleFavouriteButton(next: status)
+        }
+        else {
+            coreDataManager?.dropRecipe(for: recipeDetails!.uri)
+            toggleFavouriteButton(next: status)
+            //navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    /// Update UIBarButtonItem according recipe status
+    /// - Parameter status: Once performed, should the button match the "favourite status"
+    func toggleFavouriteButton(next status: Bool) {
+        let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium, scale: .large)
+        var systemIcon = String()
+        if status { systemIcon = "star.fill" } else { systemIcon = "star" }
+        favouriteButton.image = UIImage(systemName: systemIcon, withConfiguration: imageConfiguration)
     }
 }
 

@@ -366,6 +366,7 @@
                                             <outlet property="likesAccountLabel" destination="exT-Uh-wvO" id="zZ6-ie-6Bb"/>
                                             <outlet property="recipeDuration" destination="t1V-db-jhi" id="wZM-Zp-1yQ"/>
                                             <outlet property="recipeNameLabel" destination="Hi4-nf-DE6" id="OrT-FD-YeY"/>
+                                            <segue destination="o0Y-My-dhh" kind="show" identifier="segueFromListToFavouriteDetails" id="6ZD-xc-b1F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -636,9 +637,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Icf-We-bFv">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="YEE-6A-rml"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="YEE-6A-rml">
+                            <connections>
+                                <action selector="tappedFavouriteButton:" destination="o0Y-My-dhh" id="Zg5-4e-QXV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favouriteButton" destination="YEE-6A-rml" id="YJ5-lC-tUw"/>
                         <outlet property="recipeImageView" destination="MmL-mF-avr" id="ink-60-8RH"/>
                         <outlet property="recipeNameLabel" destination="ZQr-AO-vts" id="gaW-w6-1n8"/>
                     </connections>
@@ -648,6 +654,9 @@
             <point key="canvasLocation" x="3787.6923076923076" y="153.55450236966823"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6ZD-xc-b1F"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
