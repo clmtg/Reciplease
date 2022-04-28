@@ -28,7 +28,6 @@ final class CoreDataRepo {
         return recipes
     }
     
-    
     //MARK: - Functions - EDIT (Add/Edit/Remove)
 
     
@@ -36,14 +35,13 @@ final class CoreDataRepo {
     /// - Parameters:
     ///   - recipe: recipe to add
     ///   - completionHandler: steps to process once done
-    func addRecipeToFavourite(_ recipe: LightRecipeStruct?, completionHandler: (ServiceError?) -> Void) {
+    func addRecipeToFavourite(_ recipe: LightRecipeStruct?, completionHandler: (Result<Recipe_CD, ServiceError>) -> Void) {
         guard let recipe = recipe else {
-            completionHandler(.failureToEditLocal)
+            completionHandler(.failure(.failureToEditLocal))
             return
         }
         
         let recipeToSave = Recipe_CD(context: managedObjectContext)
-        
         recipeToSave.duration = Int16(recipe.duration)
         recipeToSave.imageUrl = recipe.imageUrl
         recipeToSave.name = recipe.name
@@ -52,18 +50,19 @@ final class CoreDataRepo {
         recipeToSave.uri =  recipe.uri
         coreDataStack.saveContext()
         
-        linkIngredients(ingredients: recipe.ingredients, recipe: recipeToSave, completionHandler: completionHandler)
+        if !recipe.ingredients.isEmpty {
+            linkIngredients(ingredients: recipe.ingredients, recipe: recipeToSave)
+        }
+        completionHandler(.success(recipeToSave))
     }
 
-    
     /// Add ingredients, for a given recipe, to CoreData model
     /// - Parameters:
     ///   - ingredients: list of ingredients to add
     ///   - recipe: related recipe
     ///   - completionHandler: steps to process once done
-    func linkIngredients(ingredients: [LightIngedientStruct], recipe: Recipe_CD, completionHandler: (ServiceError?) -> Void) {
+    func linkIngredients(ingredients: [LightIngedientStruct], recipe: Recipe_CD) {
         var ingredientsToSave = [Ingredient_CD]()
-        
         for oneIngredient in ingredients {
             let data = Ingredient_CD(context: managedObjectContext)
             data.name = oneIngredient.name

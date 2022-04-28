@@ -33,7 +33,7 @@ final class favouritesListViewController: UIViewController {
     @IBOutlet weak var recipesListTableView: UITableView!
     
     // MARK: - Functions
-
+    
     /// Extract the listed food out of an ingredients list (from the JSON)
     /// - Parameter ingredientsList: Affected ingredients
     /// - Returns: Food list as a String
@@ -99,6 +99,17 @@ extension favouritesListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+//To conform at UITableViewDelegate protocol.
+extension favouritesListViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            coreDataManager?.dropRecipe(for: (coreDataManager?.favouritesList[indexPath.row].uri)!)
+            recipesListTableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
+
 
 
 // MARK: - Extensions - Segue

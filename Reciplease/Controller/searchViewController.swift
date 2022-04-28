@@ -20,7 +20,7 @@ final class searchViewController: UIViewController {
     
     // MARK: - Var
     /// ingredientsList to perform manual test
-    private var ingredientsList = ["Bread", "Cheese", "Pizza", "Tomato"] {
+    private var ingredientsList = ["Bread", "Tomato"] {
         didSet {
             ingredientsList.isEmpty ? toggleButtonState(buttons: [clearButton,searchButton], isEnable: false) : toggleButtonState(buttons: [clearButton,searchButton], isEnable: true)
         }

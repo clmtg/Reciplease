@@ -11,12 +11,18 @@ import CoreData
 
 class oneRecipeViewController: UIViewController {
     
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coredataStack = appdelegate.coreDataStack
         coreDataManager = CoreDataRepo(coreDataStack: coredataStack)
         loadDetails()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        toggleFavouriteButton(next: isFavourite)
     }
     
     // MARK: - Vars
@@ -73,14 +79,21 @@ class oneRecipeViewController: UIViewController {
     /// - Parameter status: Once performed, will the recipe be part of favourites
     private func updateStatus(next status: Bool) {
         if status {
-            coreDataManager?.addRecipeToFavourite(recipeDetails, completionHandler: { error in
-                return
+            coreDataManager?.addRecipeToFavourite(recipeDetails, completionHandler: { result in
+                guard case .success(_) = result else {
+                    displayAnAlert(title: "Error", message: "Unable to store this recipe yet. Please try again later", actions: nil)
+                    return
+                }
+                toggleFavouriteButton(next: status)
             })
-            toggleFavouriteButton(next: status)
         }
         else {
             coreDataManager?.dropRecipe(for: recipeDetails!.uri)
             toggleFavouriteButton(next: status)
+            let i = navigationController?.viewControllers.firstIndex(of: self)
+            let previousViewController = navigationController?.viewControllers[i!-1]
+            guard let vcTitle = previousViewController?.title, vcTitle == "FavouritesList" else { return }
+            navigationController?.popViewController(animated: true)
         }
     }
     

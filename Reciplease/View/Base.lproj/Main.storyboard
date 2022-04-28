@@ -252,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="1755" y="154"/>
         </scene>
-        <!--Favourites List View Controller-->
+        <!--FavouritesList-->
         <scene sceneID="4hh-at-Ay1">
             <objects>
-                <viewController id="KMS-MR-Jd5" customClass="favouritesListViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FavouritesList" id="KMS-MR-Jd5" customClass="favouritesListViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SVG-sP-tUL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,22 +417,44 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-Ws-GKM" userLabel="recipeImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IngredientsName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-mW-Fqh" userLabel="ingredientsLabel">
-                                                    <rect key="frame" x="5" y="128" width="380" height="19"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <color key="shadowColor" red="0.21499401330000001" green="0.2005287409" blue="0.19552525879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <size key="shadowOffset" width="0.0" height="1"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecipeName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-P5-oII" userLabel="recipeNameLabel">
-                                                    <rect key="frame" x="5" y="99" width="380" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <color key="shadowColor" red="0.21499401330000001" green="0.2005287409" blue="0.19552525879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <size key="shadowOffset" width="0.0" height="1"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWh-yV-K6s" userLabel="labelsView">
+                                                    <rect key="frame" x="0.0" y="97" width="390" height="53"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecipeName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-P5-oII" userLabel="recipeNameLabel">
+                                                            <rect key="frame" x="10" y="10" width="370" height="24"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="24" id="kcK-bl-zrs"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" red="0.21499401330000001" green="0.2005287409" blue="0.19552525879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <size key="shadowOffset" width="0.0" height="1"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IngredientsName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3g-mW-Fqh" userLabel="ingredientsLabel">
+                                                            <rect key="frame" x="10" y="34" width="370" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="6FS-xw-3Wa"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" red="0.21499401330000001" green="0.2005287409" blue="0.19552525879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <size key="shadowOffset" width="0.0" height="1"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.21499401330000001" green="0.2005287409" blue="0.19552525879999999" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="w3g-mW-Fqh" firstAttribute="top" secondItem="mfm-P5-oII" secondAttribute="bottom" id="ICq-Af-QW9"/>
+                                                        <constraint firstAttribute="height" constant="53" id="YwV-PP-m6z"/>
+                                                        <constraint firstAttribute="trailing" secondItem="mfm-P5-oII" secondAttribute="trailing" constant="10" id="alo-hT-l14"/>
+                                                        <constraint firstItem="mfm-P5-oII" firstAttribute="leading" secondItem="zWh-yV-K6s" secondAttribute="leading" constant="10" id="g1L-tj-lgF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="w3g-mW-Fqh" secondAttribute="trailing" constant="10" id="uK3-WU-EBu"/>
+                                                        <constraint firstItem="w3g-mW-Fqh" firstAttribute="leading" secondItem="zWh-yV-K6s" secondAttribute="leading" constant="10" id="uO1-7D-9bW"/>
+                                                        <constraint firstAttribute="bottom" secondItem="w3g-mW-Fqh" secondAttribute="bottom" id="uqn-OW-BMc"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWF-Ne-3tQ" userLabel="rateView">
                                                     <rect key="frame" x="332" y="5" width="53" height="25"/>
                                                     <subviews>
@@ -489,18 +511,15 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="w3g-mW-Fqh" firstAttribute="leading" secondItem="uEQ-Si-6fh" secondAttribute="leading" constant="5" id="2gU-12-RQ6"/>
                                                 <constraint firstItem="EqN-Ws-GKM" firstAttribute="leading" secondItem="uEQ-Si-6fh" secondAttribute="leading" id="4iC-lD-Tfu"/>
-                                                <constraint firstAttribute="bottom" secondItem="w3g-mW-Fqh" secondAttribute="bottom" constant="3" id="6bY-G5-tDY"/>
-                                                <constraint firstAttribute="trailing" secondItem="mfm-P5-oII" secondAttribute="trailing" constant="5" id="7Xd-So-Unk"/>
                                                 <constraint firstItem="EqN-Ws-GKM" firstAttribute="top" secondItem="uEQ-Si-6fh" secondAttribute="top" id="AJy-OV-oOw"/>
-                                                <constraint firstItem="w3g-mW-Fqh" firstAttribute="top" secondItem="mfm-P5-oII" secondAttribute="bottom" constant="5" id="YW9-nO-BW3"/>
-                                                <constraint firstAttribute="trailing" secondItem="w3g-mW-Fqh" secondAttribute="trailing" constant="5" id="dsT-XV-3Je"/>
+                                                <constraint firstItem="zWh-yV-K6s" firstAttribute="leading" secondItem="uEQ-Si-6fh" secondAttribute="leading" id="YCp-vU-xA0"/>
+                                                <constraint firstAttribute="trailing" secondItem="zWh-yV-K6s" secondAttribute="trailing" id="ckK-Qu-Qgw"/>
+                                                <constraint firstAttribute="bottom" secondItem="zWh-yV-K6s" secondAttribute="bottom" id="eVj-dN-vVg"/>
                                                 <constraint firstAttribute="bottom" secondItem="EqN-Ws-GKM" secondAttribute="bottom" id="inU-CQ-KT7"/>
                                                 <constraint firstItem="GWF-Ne-3tQ" firstAttribute="top" secondItem="uEQ-Si-6fh" secondAttribute="top" constant="5" id="kft-1g-KbG"/>
                                                 <constraint firstAttribute="trailing" secondItem="EqN-Ws-GKM" secondAttribute="trailing" id="var-S3-cbz"/>
                                                 <constraint firstAttribute="trailing" secondItem="GWF-Ne-3tQ" secondAttribute="trailing" constant="5" id="wDD-zN-Tbw"/>
-                                                <constraint firstItem="mfm-P5-oII" firstAttribute="leading" secondItem="uEQ-Si-6fh" secondAttribute="leading" constant="5" id="xiH-56-GP4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
