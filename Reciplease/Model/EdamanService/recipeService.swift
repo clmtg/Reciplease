@@ -11,13 +11,12 @@ import Alamofire
 /// Handle the service related to the Edaman API
 final class recipeService {
     
-    // MARK: - var
-    //Session and data task used to perform API calls
-    private let sessionManager: Session
+    // MARK: - Properties
+    private let session: RecipeSessionProtocol
     
-    //Class initializer
-    init(session: Session = .default) {
-        self.sessionManager = session
+    // MARK: - Initializer
+    init(session: RecipeSessionProtocol = RecipeSession()) {
+        self.session = session
     }
     
     /// Search a recipes list based on ingredients provided
@@ -28,19 +27,28 @@ final class recipeService {
         loadNextPage(for: ApiEndpoint.recipeWith(ingredients), completionHandler: completionHandler)
     }
     
-    /// Retrieve the recipes list for a specific page
-    /// - Parameters:
-    ///   - page: page url to load
-    ///   - completionHandler: call to perform once result (sucess/failure) is available
     func loadNextPage(for page: URL, completionHandler: @escaping (Result<RecipeStruct, AFError>) -> Void) {
-        let request = sessionManager.request(page)
-        request.responseDecodable(of: RecipeStruct.self) { response in
-            switch response.result {
-            case .success(let data):
-                completionHandler(.success(data))
-            case .failure(let error):
-                completionHandler(.failure(error))
+        session.request(url: page) { response in
+            guard case .success(let data)  = response.result else {
+                completionHandler(.failure(response.error!))
+                return
             }
+            completionHandler(.success(data))
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

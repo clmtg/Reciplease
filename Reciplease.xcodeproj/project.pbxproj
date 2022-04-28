@@ -14,7 +14,6 @@
 		EB57A4B12816E362007F9BE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB57A4AF2816E362007F9BE8 /* Main.storyboard */; };
 		EB57A4B62816E363007F9BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB57A4B52816E363007F9BE8 /* Assets.xcassets */; };
 		EB57A4B92816E363007F9BE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB57A4B72816E363007F9BE8 /* LaunchScreen.storyboard */; };
-		EB57A4C42816E363007F9BE8 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB57A4C32816E363007F9BE8 /* RecipleaseTests.swift */; };
 		EB668A9B281823D70084FB96 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB668A9A281823D70084FB96 /* CoreDataStack.swift */; };
 		EB668A9D281824D40084FB96 /* CoreDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB668A9C281824D40084FB96 /* CoreDataRepo.swift */; };
 		EB72DEAF2819A9EC0055D385 /* LightRecipeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72DEAE2819A9EC0055D385 /* LightRecipeStruct.swift */; };
@@ -31,6 +30,12 @@
 		EBD9BEF3281A980C0079FDE6 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BEF2281A980C0079FDE6 /* MockCoreDataStack.swift */; };
 		EBD9BEF5281A98530079FDE6 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BEF4281A98530079FDE6 /* CoreDataManagerTests.swift */; };
 		EBD9BEF7281ABC980079FDE6 /* FakeDataCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BEF6281ABC980079FDE6 /* FakeDataCoreData.swift */; };
+		EBD9BF07281ADFEE0079FDE6 /* RecipeSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BF06281ADFEE0079FDE6 /* RecipeSessionProtocol.swift */; };
+		EBD9BF09281AE07F0079FDE6 /* RecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BF08281AE07F0079FDE6 /* RecipeSession.swift */; };
+		EBD9BF0B281AE4FB0079FDE6 /* FakeRecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BF0A281AE4FB0079FDE6 /* FakeRecipeSession.swift */; };
+		EBD9BF0D281AE82F0079FDE6 /* FakeReponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BF0C281AE82F0079FDE6 /* FakeReponseData.swift */; };
+		EBD9BF0F281AE8EF0079FDE6 /* edamanApiResult.json in Resources */ = {isa = PBXBuildFile; fileRef = EBD9BF0E281AE8EF0079FDE6 /* edamanApiResult.json */; };
+		EBD9BF11281AF67E0079FDE6 /* RecipeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BF10281AF67E0079FDE6 /* RecipeServiceTest.swift */; };
 		EBE26011281987C400145954 /* RecipleaseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBE2600F281987C400145954 /* RecipleaseDataModel.xcdatamodeld */; };
 		EBEB4AED2816E54B00F782C4 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB4AEC2816E54B00F782C4 /* searchViewController.swift */; };
 		EBEB4AF02816EA0500F782C4 /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB4AEF2816EA0500F782C4 /* StringProtocol.swift */; };
@@ -67,7 +72,6 @@
 		EB57A4B82816E363007F9BE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB57A4BA2816E363007F9BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB57A4BF2816E363007F9BE8 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB57A4C32816E363007F9BE8 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		EB668A9A281823D70084FB96 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EB668A9C281824D40084FB96 /* CoreDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepo.swift; sourceTree = "<group>"; };
 		EB72DEAE2819A9EC0055D385 /* LightRecipeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRecipeStruct.swift; sourceTree = "<group>"; };
@@ -84,6 +88,12 @@
 		EBD9BEF2281A980C0079FDE6 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		EBD9BEF4281A98530079FDE6 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		EBD9BEF6281ABC980079FDE6 /* FakeDataCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataCoreData.swift; sourceTree = "<group>"; };
+		EBD9BF06281ADFEE0079FDE6 /* RecipeSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSessionProtocol.swift; sourceTree = "<group>"; };
+		EBD9BF08281AE07F0079FDE6 /* RecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSession.swift; sourceTree = "<group>"; };
+		EBD9BF0A281AE4FB0079FDE6 /* FakeRecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRecipeSession.swift; sourceTree = "<group>"; };
+		EBD9BF0C281AE82F0079FDE6 /* FakeReponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeReponseData.swift; sourceTree = "<group>"; };
+		EBD9BF0E281AE8EF0079FDE6 /* edamanApiResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = edamanApiResult.json; sourceTree = "<group>"; };
+		EBD9BF10281AF67E0079FDE6 /* RecipeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeServiceTest.swift; sourceTree = "<group>"; };
 		EBE26010281987C400145954 /* RecipleaseDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipleaseDataModel.xcdatamodel; sourceTree = "<group>"; };
 		EBEB4AEC2816E54B00F782C4 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		EBEB4AEF2816EA0500F782C4 /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
@@ -175,9 +185,8 @@
 		EB57A4C22816E363007F9BE8 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				EBD9BEF1281A97D40079FDE6 /* Alamofire */,
+				EBD9BEF8281AD4140079FDE6 /* RecipeService */,
 				EBD9BEF0281A97CC0079FDE6 /* CoreData */,
-				EB57A4C32816E363007F9BE8 /* RecipleaseTests.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -185,14 +194,9 @@
 		EB57A4DC2816E372007F9BE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBD9BF04281ADAD10079FDE6 /* EdamanService */,
+				EBD9BF03281ADAC00079FDE6 /* DataRepresentation */,
 				EB668A99281823B30084FB96 /* CoreData */,
-				EBBCEFE32816ECE7002FBA7E /* RecipeStruct.swift */,
-				EB72DEAE2819A9EC0055D385 /* LightRecipeStruct.swift */,
-				EB72DEB02819A9FD0055D385 /* LightIngedientStruct.swift */,
-				EBBCEFE52816ED02002FBA7E /* ApiEndpoint.swift */,
-				EBBCEFE72816ED17002FBA7E /* AppInfo.swift */,
-				EBBCEFE92816ED27002FBA7E /* ServiceError.swift */,
-				EBBCEFEB2816ED36002FBA7E /* recipeService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,11 +253,46 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		EBD9BEF1281A97D40079FDE6 /* Alamofire */ = {
+		EBD9BEF8281AD4140079FDE6 /* RecipeService */ = {
 			isa = PBXGroup;
 			children = (
+				EBD9BF0A281AE4FB0079FDE6 /* FakeRecipeSession.swift */,
+				EBD9BF0C281AE82F0079FDE6 /* FakeReponseData.swift */,
+				EBD9BF0E281AE8EF0079FDE6 /* edamanApiResult.json */,
+				EBD9BF10281AF67E0079FDE6 /* RecipeServiceTest.swift */,
 			);
-			path = Alamofire;
+			path = RecipeService;
+			sourceTree = "<group>";
+		};
+		EBD9BF03281ADAC00079FDE6 /* DataRepresentation */ = {
+			isa = PBXGroup;
+			children = (
+				EBBCEFE32816ECE7002FBA7E /* RecipeStruct.swift */,
+				EB72DEAE2819A9EC0055D385 /* LightRecipeStruct.swift */,
+				EB72DEB02819A9FD0055D385 /* LightIngedientStruct.swift */,
+			);
+			path = DataRepresentation;
+			sourceTree = "<group>";
+		};
+		EBD9BF04281ADAD10079FDE6 /* EdamanService */ = {
+			isa = PBXGroup;
+			children = (
+				EBD9BF05281ADF970079FDE6 /* ServiceHelpers */,
+				EBBCEFEB2816ED36002FBA7E /* recipeService.swift */,
+				EBD9BF06281ADFEE0079FDE6 /* RecipeSessionProtocol.swift */,
+				EBD9BF08281AE07F0079FDE6 /* RecipeSession.swift */,
+			);
+			path = EdamanService;
+			sourceTree = "<group>";
+		};
+		EBD9BF05281ADF970079FDE6 /* ServiceHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				EBBCEFE52816ED02002FBA7E /* ApiEndpoint.swift */,
+				EBBCEFE92816ED27002FBA7E /* ServiceError.swift */,
+				EBBCEFE72816ED17002FBA7E /* AppInfo.swift */,
+			);
+			path = ServiceHelpers;
 			sourceTree = "<group>";
 		};
 		EBEB4AEE2816E9F700F782C4 /* Extensions */ = {
@@ -371,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD9BF0F281AE8EF0079FDE6 /* edamanApiResult.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD9BF09281AE07F0079FDE6 /* RecipeSession.swift in Sources */,
 				EB668A9B281823D70084FB96 /* CoreDataStack.swift in Sources */,
 				EB72DEAF2819A9EC0055D385 /* LightRecipeStruct.swift in Sources */,
 				EBBCEFE82816ED17002FBA7E /* AppInfo.swift in Sources */,
@@ -474,6 +515,7 @@
 				EB57A4AC2816E362007F9BE8 /* SceneDelegate.swift in Sources */,
 				EBBCEFEA2816ED27002FBA7E /* ServiceError.swift in Sources */,
 				EB1A127E28183BDD00044370 /* favouritesListViewController.swift in Sources */,
+				EBD9BF07281ADFEE0079FDE6 /* RecipeSessionProtocol.swift in Sources */,
 				EBBCEFF22816EDB8002FBA7E /* oneRecipeViewController.swift in Sources */,
 				EBEB4AF02816EA0500F782C4 /* StringProtocol.swift in Sources */,
 				EBBCEFF02816EDA0002FBA7E /* recipesListViewController.swift in Sources */,
@@ -488,10 +530,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB57A4C42816E363007F9BE8 /* RecipleaseTests.swift in Sources */,
+				EBD9BF0D281AE82F0079FDE6 /* FakeReponseData.swift in Sources */,
 				EBD9BEF7281ABC980079FDE6 /* FakeDataCoreData.swift in Sources */,
+				EBD9BF0B281AE4FB0079FDE6 /* FakeRecipeSession.swift in Sources */,
 				EBD9BEF5281A98530079FDE6 /* CoreDataManagerTests.swift in Sources */,
 				EBD9BEF3281A980C0079FDE6 /* MockCoreDataStack.swift in Sources */,
+				EBD9BF11281AF67E0079FDE6 /* RecipeServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
