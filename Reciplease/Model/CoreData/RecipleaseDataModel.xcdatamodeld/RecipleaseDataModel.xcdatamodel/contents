@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Ingredient_CD" representedClassName=".Ingredient_CD" syncable="YES" codeGenerationType="class">
+    <entity name="IngredientCD" representedClassName=".IngredientCD" syncable="YES" codeGenerationType="class">
         <attribute name="details" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe_CD" inverseName="ingredients" inverseEntity="Recipe_CD"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeCD" inverseName="ingredients" inverseEntity="RecipeCD"/>
     </entity>
-    <entity name="Recipe_CD" representedClassName=".Recipe_CD" syncable="YES" codeGenerationType="class">
+    <entity name="RecipeCD" representedClassName=".RecipeCD" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="recipeUrl" optional="YES" attributeType="String"/>
         <attribute name="uri" optional="YES" attributeType="String"/>
-        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient_CD" inverseName="recipe" inverseEntity="Ingredient_CD"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IngredientCD" inverseName="recipe" inverseEntity="IngredientCD"/>
     </entity>
     <elements>
-        <element name="Ingredient_CD" positionX="-44.25390625" positionY="4.4140625" width="128" height="74"/>
-        <element name="Recipe_CD" positionX="-254.1640625" positionY="-40.8046875" width="128" height="134"/>
+        <element name="IngredientCD" positionX="-44.25390625" positionY="4.4140625" width="128" height="74"/>
+        <element name="RecipeCD" positionX="160" positionY="192" width="128" height="134"/>
     </elements>
 </model>

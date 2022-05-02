@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 
+
 /// Class handling the data (get/save/delete/etc...) through the CoreDataStack
 final class CoreDataRepo {
     
@@ -22,8 +23,8 @@ final class CoreDataRepo {
     }
     
     // MARK: - Computed var
-    var favouritesList: [Recipe_CD] {
-        let request: NSFetchRequest<Recipe_CD> = Recipe_CD.fetchRequest()
+    var favouritesList: [RecipeCD] {
+        let request: NSFetchRequest<RecipeCD> = RecipeCD.fetchRequest()
         guard let recipes = try? managedObjectContext.fetch(request) else { return [] }
         return recipes
     }
@@ -35,13 +36,13 @@ final class CoreDataRepo {
     /// - Parameters:
     ///   - recipe: recipe to add
     ///   - completionHandler: steps to process once done
-    func addRecipeToFavourite(_ recipe: LightRecipeStruct?, completionHandler: (Result<Recipe_CD, ServiceError>) -> Void) {
+    func addRecipeToFavourite(_ recipe: LightRecipeStruct?, completionHandler: (Result<RecipeCD, ServiceError>) -> Void) {
         guard let recipe = recipe else {
             completionHandler(.failure(.failureToEditLocal))
             return
         }
         
-        let recipeToSave = Recipe_CD(context: managedObjectContext)
+        let recipeToSave = RecipeCD(context: managedObjectContext)
         recipeToSave.duration = Int16(recipe.duration)
         recipeToSave.imageUrl = recipe.imageUrl
         recipeToSave.name = recipe.name
@@ -61,10 +62,10 @@ final class CoreDataRepo {
     ///   - ingredients: list of ingredients to add
     ///   - recipe: related recipe
     ///   - completionHandler: steps to process once done
-    func linkIngredients(ingredients: [LightIngedientStruct], recipe: Recipe_CD) {
-        var ingredientsToSave = [Ingredient_CD]()
+    func linkIngredients(ingredients: [LightIngedientStruct], recipe: RecipeCD) {
+        var ingredientsToSave = [IngredientCD]()
         for oneIngredient in ingredients {
-            let data = Ingredient_CD(context: managedObjectContext)
+            let data = IngredientCD(context: managedObjectContext)
             data.name = oneIngredient.name
             data.details = oneIngredient.details
             data.recipe = recipe
@@ -76,7 +77,7 @@ final class CoreDataRepo {
     /// Delete a recipe entity from CoreData using the recipe URI
     /// - Parameter uri: uri of the affected recipe
     func dropRecipe(for uri: String) {
-        let request: NSFetchRequest<Recipe_CD> = Recipe_CD.fetchRequest()
+        let request: NSFetchRequest<RecipeCD> = RecipeCD.fetchRequest()
         let recipeFilter = NSPredicate(format: "uri == %@", uri)
         request.predicate = recipeFilter
         guard let data = try? coreDataStack.mainContext.fetch(request) else { return }
@@ -88,12 +89,12 @@ final class CoreDataRepo {
     
     /// Provide the list of ingredients for a given recipethrough a closure
     /// - Parameter completionHandler: closure to process
-    func getIngredients(for recipe: Recipe_CD) -> [Ingredient_CD] {
-        let request: NSFetchRequest<Ingredient_CD> = Ingredient_CD.fetchRequest()
+    func getIngredients(for recipe: RecipeCD) -> [IngredientCD] {
+        let request: NSFetchRequest<IngredientCD> = IngredientCD.fetchRequest()
         let recipeFilter = NSPredicate(format: "recipe == %@", recipe)
         request.predicate = recipeFilter
         guard let data = try? coreDataStack.mainContext.fetch(request) else {
-            return [Ingredient_CD]()
+            return [IngredientCD]()
         }        
         return data
     }

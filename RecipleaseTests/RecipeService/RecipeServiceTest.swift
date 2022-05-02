@@ -18,7 +18,7 @@ class RecipeServiceTests: XCTestCase {
     func testGivenServiceIsUnavailable_WhenRequestSearch_ErrorIsThrown(){
         let fakeResponse = FakeResponse(response: FakeResponseData.invalidResponse, data: nil, result: .failure(.invalidURL(url: "")) )
         let session = FakeRecipeSession(fakeResponse: fakeResponse)
-        let sut = recipeService(session: session)
+        let sut = RecipeService(session: session)
         let expectation = XCTestExpectation(description: "Wait for change")
         sut.searchRecipes(with: ingredients) { result in
             guard case .failure(let error) = result else {
@@ -35,7 +35,7 @@ class RecipeServiceTests: XCTestCase {
         
         let fakeResponse = FakeResponse(response: FakeResponseData.validResponse, data: FakeResponseData.correctData, result: .success(FakeResponseData.fakeRecipeStruct))
         let session = FakeRecipeSession(fakeResponse: fakeResponse)
-        let sut = recipeService(session: session)
+        let sut = RecipeService(session: session)
         let expectation = XCTestExpectation(description: "Wait for change")
         
         sut.searchRecipes(with: ingredients) { result in

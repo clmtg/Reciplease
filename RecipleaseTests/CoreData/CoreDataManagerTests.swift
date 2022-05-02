@@ -60,7 +60,7 @@ final class CoreDataManagerTests: XCTestCase {
     // MARK: - Tests - Related to get ingredients for a given recipe
     
     func testGivenRecipeNeedsIngredient_WhenrequestRelatedIngredients_ThenListIsEmpty() {
-        var recipeAdded: Recipe_CD?
+        var recipeAdded: RecipeCD?
         coreDataManager.addRecipeToFavourite(FakeDataCoreData.correctLightRecipeWithoutIngredients) { result in
             guard case .success(let data) = result else { return }
             recipeAdded = data
@@ -70,7 +70,7 @@ final class CoreDataManagerTests: XCTestCase {
     }
     
     func testGivenRecipeIsFull_WhenrequestRelatedIngredients_ThenListContainsData() {
-        var recipeAdded: Recipe_CD?
+        var recipeAdded: RecipeCD?
         coreDataManager.addRecipeToFavourite(FakeDataCoreData.correctLightRecipeWithIngredients) { result in
             guard case .success(let data) = result else { return }
             recipeAdded = data
@@ -83,7 +83,7 @@ final class CoreDataManagerTests: XCTestCase {
     // MARK: - Tests - Related to get link recipe and ingredients
     
     func testGivenRecipeNeedsIngredient_WhenAddIngredients_ThenIngredientLightsLink() {
-        var recipeAdded: Recipe_CD?
+        var recipeAdded: RecipeCD?
         coreDataManager.addRecipeToFavourite(FakeDataCoreData.correctLightRecipeWithoutIngredients) { result in
             guard case .success(let data) = result else { return }
             recipeAdded = data
@@ -99,7 +99,7 @@ final class CoreDataManagerTests: XCTestCase {
     // MARK: - Tests - Related to removing recipe from local storage
     
     func testGivenRecipeNeedsToBeRemoved_WhenRequestDrop_ThenRecipeIsDelete() {
-        var recipeAdded: Recipe_CD?
+        var recipeAdded: RecipeCD?
         coreDataManager.addRecipeToFavourite(FakeDataCoreData.correctLightRecipeWithoutIngredients) { result in
             guard case .success(let data) = result else { return }
             recipeAdded = data
