@@ -18,6 +18,8 @@
 		EB668A9D281824D40084FB96 /* CoreDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB668A9C281824D40084FB96 /* CoreDataRepo.swift */; };
 		EB72DEAF2819A9EC0055D385 /* LightRecipeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72DEAE2819A9EC0055D385 /* LightRecipeStruct.swift */; };
 		EB72DEB12819A9FD0055D385 /* LightIngedientStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72DEB02819A9FD0055D385 /* LightIngedientStruct.swift */; };
+		EBB655CB28200005009460EB /* mockup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EBB655CA28200005009460EB /* mockup.jpg */; };
+		EBB655CD28200039009460EB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EBB655CC28200039009460EB /* README.md */; };
 		EBBCEFE22816ECCA002FBA7E /* OneRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCEFE12816ECCA002FBA7E /* OneRecipeTableViewCell.swift */; };
 		EBBCEFE42816ECE7002FBA7E /* RecipeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCEFE32816ECE7002FBA7E /* RecipeStruct.swift */; };
 		EBBCEFE62816ED02002FBA7E /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCEFE52816ED02002FBA7E /* ApiEndpoint.swift */; };
@@ -76,6 +78,8 @@
 		EB668A9C281824D40084FB96 /* CoreDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepo.swift; sourceTree = "<group>"; };
 		EB72DEAE2819A9EC0055D385 /* LightRecipeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRecipeStruct.swift; sourceTree = "<group>"; };
 		EB72DEB02819A9FD0055D385 /* LightIngedientStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightIngedientStruct.swift; sourceTree = "<group>"; };
+		EBB655CA28200005009460EB /* mockup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mockup.jpg; sourceTree = "<group>"; };
+		EBB655CC28200039009460EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EBBCEFE12816ECCA002FBA7E /* OneRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		EBBCEFE32816ECE7002FBA7E /* RecipeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStruct.swift; sourceTree = "<group>"; };
 		EBBCEFE52816ED02002FBA7E /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 		EB57A49D2816E362007F9BE8 = {
 			isa = PBXGroup;
 			children = (
+				EBB655CC28200039009460EB /* README.md */,
+				EBB655CA28200005009460EB /* mockup.jpg */,
 				EBBCEFED2816ED5A002FBA7E /* .gitignore */,
 				EB57A4A82816E362007F9BE8 /* Reciplease */,
 				EB57A4C22816E363007F9BE8 /* RecipleaseTests */,
@@ -399,7 +405,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB655CD28200039009460EB /* README.md in Resources */,
 				EBBCEFEE2816ED5A002FBA7E /* .gitignore in Resources */,
+				EBB655CB28200005009460EB /* mockup.jpg in Resources */,
 				EB57A4B92816E363007F9BE8 /* LaunchScreen.storyboard in Resources */,
 				EB57A4B62816E363007F9BE8 /* Assets.xcassets in Resources */,
 				EB57A4B12816E362007F9BE8 /* Main.storyboard in Resources */,

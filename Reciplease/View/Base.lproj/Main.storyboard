@@ -74,11 +74,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywX-Wu-WBB">
                                 <rect key="frame" x="40" y="753" width="334" height="50"/>
+                                <accessibility key="accessibilityConfiguration" label="Search for recipes"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1wY-Tr-h7K"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Searh for recipes">
+                                <buttonConfiguration key="configuration" style="plain" title="Search for recipes">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="0.26784792540000002" green="0.57889860869999998" blue="0.3663949668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
@@ -96,7 +97,7 @@
                                     <constraint firstAttribute="height" constant="50" id="4Ro-UH-lPe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTw-NV-kma" userLabel="ViewUserInput">
@@ -104,6 +105,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lemon, Cheese, Sausages..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-C2-l0l">
                                         <rect key="frame" x="10" y="10" width="324" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" label="jh"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -424,6 +426,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-Jv-DOV" userLabel="recipesListTableView">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" id="AjM-Zo-jy3" userLabel="activityIndicatorTableFooter">
+                                    <rect key="frame" x="0.0" y="217" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="oneRecipeCell" rowHeight="150" id="YRl-Yf-rMm" userLabel="oneRecipeCell" customClass="OneRecipeTableViewCell" customModule="Reciplease" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="150"/>
@@ -568,6 +575,7 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="BmO-5a-6wI"/>
                     <navigationItem key="navigationItem" id="PPq-YJ-rE0"/>
                     <connections>
+                        <outlet property="activityIndicatorTableFooter" destination="AjM-Zo-jy3" id="XaE-lA-yGZ"/>
                         <outlet property="recipesListTableView" destination="LGY-Jv-DOV" id="5hd-An-r9l"/>
                     </connections>
                 </viewController>
@@ -612,18 +620,18 @@
                                 <rect key="frame" x="20" y="338" width="374" height="395"/>
                                 <color key="backgroundColor" red="0.21499401330000001" green="0.2005287409" blue="0.19552525879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="oneIngredientCell" textLabel="1wA-vp-8B7" style="IBUITableViewCellStyleDefault" id="hxn-l7-BDh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="oneIngredientCell" id="hxn-l7-BDh">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hxn-l7-BDh" id="RTI-r5-ybM">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1wA-vp-8B7">
-                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAN-hR-DCO">
+                                                    <rect key="frame" x="9" y="0.0" width="338" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -639,6 +647,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeN-UD-nlC">
                                 <rect key="frame" x="40" y="753" width="334" height="50"/>
                                 <color key="backgroundColor" red="0.26784792540000002" green="0.57889860869999998" blue="0.3663949668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Get directions"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="l3l-ae-TEp"/>
                                 </constraints>
@@ -674,7 +683,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Icf-We-bFv">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="YEE-6A-rml">
+                        <barButtonItem key="rightBarButtonItem" title="Favourites" image="star" catalog="system" id="YEE-6A-rml">
                             <connections>
                                 <action selector="tappedFavouriteButton:" destination="o0Y-My-dhh" id="Zg5-4e-QXV"/>
                             </connections>
@@ -688,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kB4-jE-v4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3787.6923076923076" y="153.55450236966823"/>
+            <point key="canvasLocation" x="3786.9565217391309" y="153.34821428571428"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
