@@ -55,6 +55,7 @@ class OneRecipeViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     /// Label to display the user rate of this recipe
     @IBOutlet weak var likesLabel: UILabel!
+
     
     // MARK: - IBActions
     /// Performed when UIButton "Get directions" has been tapped
@@ -75,6 +76,7 @@ class OneRecipeViewController: UIViewController {
             return
         }
         recipeNameLabel.text = details.name
+        recipeImageView.kf.indicatorType = .activity
         recipeImageView.kf.setImage(with: URL(string: details.imageUrl))
         toggleFavouriteButton(next: isFavourite)
         durationLabel.text = "\(details.duration)"

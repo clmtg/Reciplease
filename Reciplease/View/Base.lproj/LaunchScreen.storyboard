@@ -18,14 +18,17 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Bxt-9P-rxz">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <color key="backgroundColor" red="0.1869885325" green="0.17712429169999999" blue="0.17200222609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Bxt-9P-rxz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2eY-Hj-oCQ"/>
+                            <constraint firstItem="Bxt-9P-rxz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2kz-ha-NDS"/>
                             <constraint firstAttribute="bottom" secondItem="Bxt-9P-rxz" secondAttribute="bottom" id="3gX-4k-eVT"/>
                             <constraint firstItem="Bxt-9P-rxz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="7zx-PG-BIt"/>
+                            <constraint firstItem="Bxt-9P-rxz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BhZ-Zz-PaI"/>
                             <constraint firstItem="Bxt-9P-rxz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Yp7-zt-dkM"/>
                             <constraint firstItem="Bxt-9P-rxz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kL6-YJ-n1U"/>
                             <constraint firstItem="Bxt-9P-rxz" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qGo-Uh-57s"/>
