@@ -21,7 +21,7 @@ final class SearchViewController: UIViewController {
     // MARK: - Var
     /// ingredientsList to perform manual test
     // ============================ Une service qui gere ajout, suppression, stockage (Dans le coreData (car il y a deja linkIngredient) ? Juste dans le model ?)???
-    private var ingredientsList = ["Bread", "Tomato"] {
+    private var ingredientsList = ["Bread", "Salmon", "Tomato", "Avocado"] {
         didSet {
             ingredientsList.isEmpty ? toggleButtonState(buttons: [clearButton,searchButton], isEnable: false) : toggleButtonState(buttons: [clearButton,searchButton], isEnable: true)
         }
@@ -91,20 +91,20 @@ final class SearchViewController: UIViewController {
     
     /// Use the model to retreive a recipes lit and store them within recipesList var.
     func searchRecipes() {
-        recipeCore.searchRecipes(with: ingredientsList) { result in
+        recipeCore.searchRecipes(with: ingredientsList) { [weak self] result in
             switch result {
             case .failure(let error):
-                self.displayAnAlert(title: "Error", message: error.localizedDescription, actions: nil)
+                self?.displayAnAlert(title: "Error", message: error.localizedDescription, actions: nil)
             
             case .success(let data):
-                self.recipesList = data
+                self?.recipesList = data
                 
                 guard data.count > 0 else {
-                    self.displayAnAlert(title: "No recipe found", message: "Looks like we can't display recipes with this ingredients list", actions: nil)
+                    self?.displayAnAlert(title: "No recipe found", message: "Looks like we can't display recipes with this ingredients list", actions: nil)
                     return
                 }
 
-                self.performSegue(withIdentifier: "segueFromSearchToResult", sender: self.recipesList)
+                self?.performSegue(withIdentifier: "segueFromSearchToResult", sender: self?.recipesList)
             }
         }
     }

@@ -47,19 +47,18 @@ final class RecipesListViewController: UIViewController {
     /// Load more recipes using the next page link
     /// - Parameter url: Link of the next page to load
     func loadNextPage(url: URL) {
-        recipeCore.loadNextPage(for: url) { response in
+        recipeCore.loadNextPage(for: url) { [weak self] response in
             guard case .success(let data) = response else { return }
-            self.recipesList.append(contentsOf: data.hits)
-            self.activityIndicatorTableFooter.isHidden = true
-            self.recipesListTableView.reloadData()
+            self?.recipesList.append(contentsOf: data.hits)
+            self?.activityIndicatorTableFooter.isHidden = true
+            self?.recipesListTableView.reloadData()
             
             guard let urlList = data.links?.next?.href else {
-                self.nextURL = nil
+                self?.nextURL = nil
                 return
             }
-            self.nextURL = URL(string: urlList)!
+            self?.nextURL = URL(string: urlList)!
         }
-        
     }
     
     /// Set content in order to be received by next controller as expected (From a Recipe type to a LightRecipeStruct type )

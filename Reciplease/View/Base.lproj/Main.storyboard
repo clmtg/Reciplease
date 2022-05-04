@@ -74,7 +74,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywX-Wu-WBB">
                                 <rect key="frame" x="40" y="701" width="310" height="50"/>
-                                <accessibility key="accessibilityConfiguration" label="Search for recipes"/>
+                                <accessibility key="accessibilityConfiguration" hint="Display list or recipe based on ingredients." label="Search for recipes"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1wY-Tr-h7K"/>
                                 </constraints>
@@ -275,6 +275,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pP9-QC-rDh" userLabel="recipeImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Display ingredients for recipe"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-cO-B1N" userLabel="viewLabels">
                                                     <rect key="frame" x="0.0" y="107" width="390" height="43"/>
@@ -334,6 +335,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1V-db-jhi" userLabel="durationLabel">
                                                             <rect key="frame" x="0.0" y="13.333333333333332" width="40" height="9.6666666666666679"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Time needed"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="9.7599999999999998" id="Bzj-wj-BVX"/>
                                                                 <constraint firstAttribute="width" constant="40" id="grf-L1-H9Z"/>
@@ -344,6 +346,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exT-Uh-wvO" userLabel="likesLabel">
                                                             <rect key="frame" x="-1" y="2" width="40" height="9.6666666666666661"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Likes amount"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="1cK-FD-20J"/>
                                                                 <constraint firstAttribute="height" constant="9.6699999999999999" id="h4Y-yA-S0g"/>
@@ -413,7 +416,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSJ-fp-phX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1513" y="-631"/>
+            <point key="canvasLocation" x="1512.3076923076922" y="-631.27962085308059"/>
         </scene>
         <!--Recipes List View Controller-->
         <scene sceneID="t3T-6e-nar">
@@ -426,7 +429,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-Jv-DOV" userLabel="recipesListTableView">
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" id="AjM-Zo-jy3" userLabel="activityIndicatorTableFooter">
+                                <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" id="AjM-Zo-jy3" userLabel="activityIndicatorTableFooter">
                                     <rect key="frame" x="0.0" y="217.33333206176758" width="390" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -441,6 +444,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-Ws-GKM" userLabel="recipeImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Display ingredients for recipe"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWh-yV-K6s" userLabel="labelsView">
                                                     <rect key="frame" x="0.0" y="97" width="390" height="53"/>
@@ -501,6 +505,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qu3-WQ-PIh" userLabel="durationLabel">
                                                             <rect key="frame" x="4.9999999999999982" y="13.333333333333332" width="27.333333333333329" height="9.6666666666666679"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Time needed"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="9.7599999999999998" id="B6F-8n-ApO"/>
                                                             </constraints>
@@ -510,6 +515,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-AX-EKH" userLabel="likesLabel">
                                                             <rect key="frame" x="4.9999999999999982" y="2" width="26.333333333333329" height="9.6666666666666661"/>
+                                                            <accessibility key="accessibilityConfiguration" label="Like amounts"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="9.6699999999999999" id="lDD-Um-NCJ"/>
                                                             </constraints>
@@ -580,7 +586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pmf-oh-sml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881.5384615384614" y="153.55450236966823"/>
+            <point key="canvasLocation" x="1881.5384615384614" y="152.84360189573459"/>
         </scene>
         <!--One Recipe View Controller-->
         <scene sceneID="EXA-sh-I0U">
@@ -702,7 +708,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeN-UD-nlC">
                                 <rect key="frame" x="40" y="701" width="310" height="50"/>
                                 <color key="backgroundColor" red="0.26784792540000002" green="0.57889860869999998" blue="0.3663949668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration" label="Get directions"/>
+                                <accessibility key="accessibilityConfiguration" hint="Opened the recipe within Safari" label="Get directions"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="l3l-ae-TEp"/>
                                 </constraints>
