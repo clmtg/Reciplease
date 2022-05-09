@@ -143,8 +143,6 @@ extension FavouritesListViewController: UITableViewDelegate{
     
 }
 
-
-
 // MARK: - Extensions - Segue
 extension FavouritesListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
