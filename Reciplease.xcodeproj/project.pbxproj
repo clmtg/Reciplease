@@ -30,6 +30,7 @@
 		EBBCEFEC2816ED36002FBA7E /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCEFEB2816ED36002FBA7E /* RecipeService.swift */; };
 		EBBCEFEE2816ED5A002FBA7E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EBBCEFED2816ED5A002FBA7E /* .gitignore */; };
 		EBD5432A2820048000C38877 /* OneIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD543292820048000C38877 /* OneIngredientTableViewCell.swift */; };
+		EBD736A12829058600EB0F1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD736A02829058600EB0F1B /* SearchViewController.swift */; };
 		EBD9BEF3281A980C0079FDE6 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BEF2281A980C0079FDE6 /* MockCoreDataStack.swift */; };
 		EBD9BEF5281A98530079FDE6 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BEF4281A98530079FDE6 /* CoreDataManagerTests.swift */; };
 		EBD9BEF7281ABC980079FDE6 /* FakeDataCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9BEF6281ABC980079FDE6 /* FakeDataCoreData.swift */; };
@@ -90,6 +91,7 @@
 		EBBCEFEB2816ED36002FBA7E /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
 		EBBCEFED2816ED5A002FBA7E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EBD543292820048000C38877 /* OneIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneIngredientTableViewCell.swift; sourceTree = "<group>"; };
+		EBD736A02829058600EB0F1B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EBD9BEF2281A980C0079FDE6 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		EBD9BEF4281A98530079FDE6 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		EBD9BEF6281ABC980079FDE6 /* FakeDataCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataCoreData.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				EB1A128228184EDF00044370 /* remotes */,
 				EB1A128128184ED500044370 /* favourites */,
 				EB75FBF62820FC3600E3BE3B /* OneRecipeViewController.swift */,
+				EBD736A02829058600EB0F1B /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				EB668A9D281824D40084FB96 /* CoreDataRepo.swift in Sources */,
 				EBEB4AF22816EA1600F782C4 /* UIViewController+Utilities.swift in Sources */,
 				EB57A4AA2816E362007F9BE8 /* AppDelegate.swift in Sources */,
+				EBD736A12829058600EB0F1B /* SearchViewController.swift in Sources */,
 				EBD5432A2820048000C38877 /* OneIngredientTableViewCell.swift in Sources */,
 				EB57A4AC2816E362007F9BE8 /* SceneDelegate.swift in Sources */,
 				EBBCEFEA2816ED27002FBA7E /* ServiceError.swift in Sources */,
