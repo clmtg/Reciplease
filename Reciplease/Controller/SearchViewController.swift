@@ -20,7 +20,6 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Var
     /// ingredientsList to perform manual test
-    // ============================ Une service qui gere ajout, suppression, stockage (Dans le coreData (car il y a deja linkIngredient) ? Juste dans le model ?)???
     private var ingredientsList = ["Bread", "Salmon", "Tomato", "Avocado"] {
         didSet {
             ingredientsList.isEmpty ? toggleButtonState(buttons: [clearButton,searchButton], isEnable: false) : toggleButtonState(buttons: [clearButton,searchButton], isEnable: true)
