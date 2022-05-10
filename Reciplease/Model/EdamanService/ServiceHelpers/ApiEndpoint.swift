@@ -7,16 +7,15 @@
 
 import Foundation
 
-//Struct which defines endpoints for the Edaman api.
+/// Struct which defines endpoints for the Edaman api.
 struct ApiEndpoint {
     
     // MARK: - Vars
-    //The endpoint to reach. (Part added after the api address. E.g.: myapi.com/path)
+    /// The endpoint to reach. (Part added after the api address. E.g.: myapi.com/path)
     var path: String
-    //ParamS to add within the endpoints
+    /// ParamS to add within the endpoints
     var queryItems: [URLQueryItem] = []
-    
-    //Full url endpoint
+    /// Full url endpoint
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
@@ -32,10 +31,8 @@ struct ApiEndpoint {
     }
 }
 
-// MARK: - Functions
-
+// MARK: - Extension
 extension ApiEndpoint {
-    
     /// Return the endpoint to reach in order to retreive a recipes lised based on ingredients
     /// - Returns: Endpoint to reach
     static func recipeWith(_ ingredients: [String]) -> URL {

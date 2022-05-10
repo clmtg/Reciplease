@@ -7,7 +7,7 @@
 
 import Foundation
 
-//Enumeration which list the error case for the services used within the Reciplease app
+/// Enumeration which list the error case for the services used within the Reciplease app
 enum ServiceError: Error {
     case corruptData
     case unexpectedResponse

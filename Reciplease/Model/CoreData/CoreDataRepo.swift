@@ -8,7 +8,6 @@
 import Foundation
 import CoreData
 
-
 /// Class handling the data (get/save/delete/etc...) through the CoreDataStack
 final class CoreDataRepo {
     
@@ -30,8 +29,6 @@ final class CoreDataRepo {
     }
     
     //MARK: - Functions - EDIT (Add/Edit/Remove)
-
-    
     /// Add a favourite and the related ingredients to CoreData model
     /// - Parameters:
     ///   - recipe: recipe to add

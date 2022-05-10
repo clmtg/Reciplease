@@ -11,23 +11,19 @@ import CoreData
 open class CoreDataStack {
 
     // MARK: - Properties
-    
     /// Allow to set the model that must used by the CoreDataStack
     private let modelName: String
-    
     /// Provide the main context using an "easy" way
     public lazy var mainContext: NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
 
     // MARK: - Initializer
-
     public init(modelName: String) {
         self.modelName = modelName
     }
 
     // MARK: - Core Data stack
-
     public lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: modelName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in

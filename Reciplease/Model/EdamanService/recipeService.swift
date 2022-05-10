@@ -27,6 +27,10 @@ final class RecipeService {
         loadNextPage(for: ApiEndpoint.recipeWith(ingredients), completionHandler: completionHandler)
     }
     
+    /// Retreive data for a specific url page.
+    /// - Parameters:
+    ///   - page: page related to the data to load
+    ///   - completionHandler: call to perform once result (sucess/failure) is available
     func loadNextPage(for page: URL, completionHandler: @escaping (Result<RecipeStruct, AFError>) -> Void) {
         session.request(url: page) { response in
             guard case .success(let data)  = response.result else {
@@ -36,19 +40,4 @@ final class RecipeService {
             completionHandler(.success(data))
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

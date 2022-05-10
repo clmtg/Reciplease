@@ -98,7 +98,6 @@ struct Ingredient: Codable {
     }
 }
 
-
 // MARK: - RecipeStructLinks
 struct RecipeStructLinks: Codable {
     let next: Next?
