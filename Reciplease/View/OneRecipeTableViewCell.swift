@@ -10,6 +10,7 @@ import Kingfisher
 
 class OneRecipeTableViewCell: UITableViewCell {
     
+    // MARK: - View life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -25,7 +26,6 @@ class OneRecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var likesAccountLabel: UILabel!
     @IBOutlet weak var recipeDuration: UILabel!
     @IBOutlet weak var cellImageView: UIImageView!
-    
     
     // MARK: - Function
     /// Configure the cell based on the information provided

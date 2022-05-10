@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//Extension of UIViewController to add ability to display an alert, dismiss the vitural keyboard and disable button if needed
 extension UIViewController {
     /// Display an iOS alert to the user
     /// - Parameters:

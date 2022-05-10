@@ -7,8 +7,10 @@
 
 import UIKit
 
+//Controller for the view related of the recipes list provides from the API. (View list of favourite recipes is handled by a different controller)
 final class RecipesListViewController: UIViewController {
     
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadRecipesListInitalPage()
@@ -29,9 +31,8 @@ final class RecipesListViewController: UIViewController {
     @IBOutlet weak var recipesListTableView: UITableView!
     @IBOutlet weak var activityIndicatorTableFooter: UIActivityIndicatorView!
     
-    
     // MARK: - Functions
-    /// Load the first page of the recipe list received. Does initialise the URL for the next pahe if needed.
+    /// Load the first page of the recipe list received. Does initialise the URL for the next page if needed.
     func loadRecipesListInitalPage(){
         guard let recipesFullData = recipesFullData else {
             displayAnAlert(title: "Oops", message: "Looks like we can't display recipes yet", actions: nil)

@@ -9,10 +9,10 @@ import UIKit
 import Kingfisher
 import CoreData
 
+//Controller handling the view displaying details for one recipe only
 class OneRecipeViewController: UIViewController {
     
     // MARK: - View life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -55,7 +55,6 @@ class OneRecipeViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     /// Label to display the user rate of this recipe
     @IBOutlet weak var likesLabel: UILabel!
-
     
     // MARK: - IBActions
     /// Performed when UIButton "Get directions" has been tapped
@@ -120,7 +119,6 @@ class OneRecipeViewController: UIViewController {
 //To conform at UITableViewDataSource protocol.
 extension OneRecipeViewController: UITableViewDataSource {
    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "oneIngredientCell", for: indexPath) as? OneIngredientTableViewCell else { return UITableViewCell() }
         let index = indexPath.row
@@ -136,5 +134,3 @@ extension OneRecipeViewController: UITableViewDataSource {
         return ingredientsList.count
     }
 }
-
-

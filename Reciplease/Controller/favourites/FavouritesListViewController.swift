@@ -10,10 +10,10 @@ import Kingfisher
 import CoreData
 import Foundation
 
+//Controller for the view related of the favourite recipes list. (View list of recipes list provided by the API is handled by a different controller)
 final class FavouritesListViewController: UIViewController {
     
     // MARK: - View life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -34,7 +34,6 @@ final class FavouritesListViewController: UIViewController {
     @IBOutlet weak var recipesListTableView: UITableView!
     
     // MARK: - Functions
-    
     /// Extract the listed food out of an ingredients list (from the JSON)
     /// - Parameter ingredientsList: Affected ingredients
     /// - Returns: Food list as a String
@@ -51,14 +50,10 @@ final class FavouritesListViewController: UIViewController {
     /// - Parameter selectedRecipe: the recipe to convert
     /// - Returns: the recipe converted
     func prepareContentforSegue(selectedRecipe: RecipeCD, selectedIngredients: [IngredientCD]) -> LightRecipeStruct? {
-        
         guard let name = selectedRecipe.name,
               let imageUrl = selectedRecipe.imageUrl,
               let uri = selectedRecipe.uri,
               let recipeUrl = selectedRecipe.recipeUrl else { return nil }
-        
-
-        
         
         var detailsSelection = LightRecipeStruct(name: name,
                                                  imageUrl: imageUrl,
@@ -135,12 +130,6 @@ extension FavouritesListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return coreDataManager?.favouritesList.isEmpty ?? true ? 400 : 0
     }
-    
-    
-    
-    
-    
-    
 }
 
 // MARK: - Extensions - Segue
@@ -156,7 +145,3 @@ extension FavouritesListViewController {
         }
     }
 }
-
-
-
-

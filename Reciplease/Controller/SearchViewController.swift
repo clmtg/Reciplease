@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+//Controler handling the view wher search is initied by user
 final class SearchViewController: UIViewController {
-    
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        toggleButtonState(buttons: [addButton], isEnable: false)
+        toggleButtonState(buttons: [addButton, clearButton], isEnable: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -20,7 +20,7 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Var
     /// ingredientsList to perform manual test
-    private var ingredientsList = ["Bread", "Salmon", "Tomato", "Avocado"] {
+    private var ingredientsList = [String]() {
         didSet {
             ingredientsList.isEmpty ? toggleButtonState(buttons: [clearButton,searchButton], isEnable: false) : toggleButtonState(buttons: [clearButton,searchButton], isEnable: true)
         }
@@ -108,7 +108,6 @@ final class SearchViewController: UIViewController {
         }
     }
 }
-
 
 // MARK: - Extensions - UITextField
 extension SearchViewController: UITextFieldDelegate {

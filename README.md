@@ -2,7 +2,7 @@
 ## Reciplease :  You tell us what's in your fridge, we tell you what to cook
 
 Have you ever opened your fridge and thought how could I cook something with those ?! Turning back to your computer with the hope your favorite search engine would feed you an amazing recipe...
-2 hours later, you didn't find the perfect recipe, the two weeks old cabbage into your fridge is still rotting and you are still starving. What if you could you have an app listing recipes based on the ingredients within your fridge ?! 
+2 hours later, you didn't find the perfect recipe, the two weeks old cabbage within your fridge is still rotting and you are still starving. What if you could you have an app listing recipes based on the ingredients in your fridge ?! 
 
 We heard you and developed Reciplease specialy for you. 
 

@@ -115,7 +115,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfz-la-Dnr">
                                         <rect key="frame" x="320" y="10" width="60" height="40"/>
-                                        <accessibility key="accessibilityConfiguration" hint="Add ingredient to the list" label="Add ingredient"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Adds ingredient to the list" label="Add ingredient"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="mbb-Al-nhP"/>
                                         </constraints>
@@ -149,7 +149,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0y-Bd-W8N">
                                         <rect key="frame" x="320" y="10" width="60" height="40"/>
-                                        <accessibility key="accessibilityConfiguration" hint="Remove all the ingredients" label="Empty list"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Removes all the ingredients" label="Empty list"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="oeb-kx-8nY"/>
                                         </constraints>
@@ -447,7 +447,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-Ws-GKM" userLabel="recipeImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
-                                                    <accessibility key="accessibilityConfiguration" hint="Display ingredients for recipe"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Displays recipe details"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWh-yV-K6s" userLabel="labelsView">
                                                     <rect key="frame" x="0.0" y="97" width="390" height="53"/>
@@ -711,7 +711,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeN-UD-nlC">
                                 <rect key="frame" x="40" y="701" width="310" height="50"/>
                                 <color key="backgroundColor" red="0.26784792540000002" green="0.57889860869999998" blue="0.3663949668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration" hint="Opened the recipe within Safari" label="Get directions"/>
+                                <accessibility key="accessibilityConfiguration" hint="Opens the recipe within Safari" label="Get directions"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="l3l-ae-TEp"/>
                                 </constraints>

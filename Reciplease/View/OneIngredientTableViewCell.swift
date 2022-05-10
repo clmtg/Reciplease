@@ -8,7 +8,8 @@
 import UIKit
 
 class OneIngredientTableViewCell: UITableViewCell {
-
+    
+    // MARK: - View life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
     }
